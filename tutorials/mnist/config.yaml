@@ -1,0 +1,58 @@
+OutputDir: model_1
+ProjectName: mnist
+XilinxPart: xcu55c-fsvh2892-2L-e
+ClockPeriod: 5
+Backend: Vivado
+
+IOType: io_stream
+Model:
+  Precision: ap_fixed<8,3,AP_RND_CONV,AP_SAT>
+  ReuseFactor: 8
+LayerType:
+  Softmax:
+    Strategy: Stable
+    Precision: ap_fixed<16,6,AP_RND_CONV,AP_SAT>
+  QConv2D:
+    Precision:
+      weight: ap_fixed<8,3,AP_RND_CONV,AP_SAT>
+      bias: ap_fixed<8,3,AP_RND_CONV,AP_SAT>
+  QDense:
+    Precision:
+      weight: ap_fixed<8,3,AP_RND_CONV,AP_SAT>
+      bias: ap_fixed<8,3,AP_RND_CONV,AP_SAT>
+LayerName:
+  q_batch_normalization:
+    Trace: false
+    Precision:
+      scale: ap_fixed<32,8,AP_RND_CONV,AP_SAT>
+      bias: ap_fixed<32,8,AP_RND_CONV,AP_SAT>
+  q_batch_normalization_1:
+    Trace: false
+    Precision:
+      scale: ap_fixed<32,8,AP_RND_CONV,AP_SAT>
+      bias: ap_fixed<32,8,AP_RND_CONV,AP_SAT>
+  max_pooling2d:
+    Trace: false
+    Precision:
+      accum: ap_fixed<8,1,AP_RND_CONV,AP_SAT>
+  max_pooling2d_1:
+    Trace: false
+    Precision:
+      accum: ap_fixed<8,1,AP_RND_CONV,AP_SAT>
+  q_activation_1:
+    Trace: false
+  q_conv2d:
+    Trace: True
+    Precision:
+      accum: ap_fixed<26,16,AP_RND_CONV,AP_SAT>
+  q_conv2d_1:
+    Trace: false
+    Precision:
+      accum: ap_fixed<26,16,AP_RND_CONV,AP_SAT>
+  q_dense:
+    Precision:
+      accum: ap_fixed<26,16,AP_RND_CONV,AP_SAT>
+      result: ap_fixed<16,6,AP_RND_CONV,AP_SAT>
+  q_dense_linear:
+    Precision:
+      result: ap_fixed<16,6,AP_RND_CONV,AP_SAT>
