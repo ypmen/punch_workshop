@@ -1,0 +1,14 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel name="krnl_ai" language="c" vlnv="xilinx.com:hls:krnl_ai:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" compileOptions="" profileType="none" hwControlProtocol="ap_ctrl_none">
+    <ports>
+      <port name="q_activation_input" mode="read_only" dataWidth="8" portType="stream"/>
+	  <port name="layer18_out" mode="write_only" dataWidth="160" portType="stream"/>
+    </ports>
+    <args>
+      <arg id="0" name="in" addressQualifier="4" port="q_activation_input" hostOffset="0x0" hostSize="0x8" offset="0x0" size="0x0" type="stream&lt;hls::axis&lt;ap_uint&lt;8&gt;, 0, 0, 0&gt;, 0&gt;&amp;" memSize="0x40" origName="in" origUse="variable"/>
+      <arg id="1" name="out" addressQualifier="4" port="layer18_out" hostOffset="0x0" hostSize="0x8" offset="0x0" size="0x0" type="stream&lt;hls::axis&lt;ap_uint&lt;160&gt;, 0, 0, 0&gt;, 0&gt;&amp;" memSize="0x40" origName="out" origUse="variable"/>
+	</args>
+    <compileWorkGroupSize x="1" y="1" z="1"/>
+    <maxWorkGroupSize x="1" y="1" z="1"/>
+  </kernel>
+</root>
